@@ -1,0 +1,29 @@
+{
+  "name": "dynamo-csv-load",
+  "version": "1.0.0",
+  "description": "Script to load csv files into dynamodb",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hectormao/dynamo-csv-load.git"
+  },
+  "keywords": [
+    "dynamodb",
+    "csv",
+    "load"
+  ],
+  "author": "hectormao.gonzalez@gmail.com",
+  "license": "ISC",
+  "bin": {
+    "dynamo-csv-load": "./bin/index.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1213.0",
+    "csv-parse": "^5.3.0",
+    "through2": "^4.0.2",
+    "yargs": "^17.5.1"
+  }
+}
