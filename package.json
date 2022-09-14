@@ -1,6 +1,6 @@
 {
   "name": "dynamo-csv-load",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Script to load csv files into dynamodb",
   "main": "bin/index.js",
   "scripts": {

@@ -39,20 +39,12 @@ const loadCSV = (table, file, separator, url, arraySeparator, awsRegion) => {
           TableName: table,
           Item: item,
         };
-
-        console.log(
-          `aws dynamodb put-item --table-name ${
-            params.TableName
-          } --item '${JSON.stringify(
-            params.Item
-          )}' --endpoint-url http://127.0.0.1:4566`
-        );
-
+        console.debug(`Putting data ... ${JSON.stringify(params)}`);
         ddb.putItem(params, function (err, data) {
           if (err) {
             console.error(err);
           } else {
-            console.log(data);
+            console.log("Success Put Item ...");
           }
           callback();
         });
