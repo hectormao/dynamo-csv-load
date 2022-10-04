@@ -52,6 +52,8 @@ Options:
                                                                         [string]
   -r, --aws-region             (Optional) aws region, default: us-east-1
                                                  [string] [default: "us-east-1"]
+      --truncate               (Optional) truncate table before load data
+                                                      [boolean] [default: false]
       --help                   Show help                               [boolean]
 ```
 
@@ -69,3 +71,4 @@ where:
 - --as: array (SS) separator character, use the words TAB for tab character or ESP for espace character
 - -r: AWS Region
 - -a: AWS endpoint, only use when you connect to localstack or local DynamoDB
+- --truncate: delete all table records before load data

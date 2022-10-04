@@ -1,20 +1,14 @@
 const { parse } = require("csv-parse");
 const fs = require("fs");
-const { PassThrough, Transform } = require("stream");
 const through2 = require("through2");
 const csvToPutItem = require("./csv-translator");
-const AWS = require("aws-sdk");
 
 const Separators = {
   TAB: "\t",
   ESP: " ",
 };
 
-const loadCSV = (table, file, separator, url, arraySeparator, awsRegion) => {
-  AWS.config.update({ region: awsRegion });
-
-  const ddb = new AWS.DynamoDB({ apiVersion: "2012-08-10", endpoint: url });
-
+const loadCSV = async (ddb, table, file, separator, arraySeparator) => {
   const separatorChar = Separators[separator] || separator;
   const as = Separators[arraySeparator] || arraySeparator;
 
