@@ -3,7 +3,7 @@
 const yargs = require("yargs/yargs");
 const { hideBin } = require("yargs/helpers");
 
-const loadCSV = require("../scr/load-csv");
+const commandProcessor = require("../scr/command-processor");
 
 const options = yargs(hideBin(process.argv))
   .usage(
@@ -49,13 +49,15 @@ const options = yargs(hideBin(process.argv))
     demandOption: false,
     default: "us-east-1",
   })
+  .option("truncate", {
+    describe: "(Optional) truncate table before load data",
+    type: "boolean",
+    demandOption: false,
+    default: false,
+  })
   .help().argv;
 
-loadCSV(
-  options.table,
-  options.file,
-  options.separator,
-  options.awsEndpoint,
-  options.arraySeparator,
-  options.awsRegion
+commandProcessor(options).then(
+  (data) => console.log("Success 😎"),
+  (error) => console.error(error)
 );
